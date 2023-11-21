@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "FomeZero",
+    "slug": "FomeZero",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/Logo.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "permissions": ["android.permission.INTERNET"],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.deskye.FomeZero",
+      "config": {
+        "cleartext": {
+          "cleartextTrafficPermitted": true
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7cfeb864-172e-4432-8cb1-f73a8ad8824b"
+      }
+    }
+  }
+}
