@@ -18,8 +18,8 @@ export const handleIntegrationMP = async (total) => {
       
         "back_urls": {
             "success": "exp://192.168.0.101:8081/--/fomezero/Sucesso",
-            "failure": "https://www.failure.com",
-            "pending": "https://www.pending.com"
+            "failure": "exp://192.168.0.101:8081/--/fomezero/Falha",
+            "pending": "exp://192.168.0.101:8081/--/fomezero/Pendente"
         },
         "auto_return": "approved",
         "payment_methods": {

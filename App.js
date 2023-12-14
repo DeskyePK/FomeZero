@@ -25,6 +25,8 @@ import Massas from "./Pages/Categorias/Massas";
 import Salgados from "./Pages/Categorias/Salgados";
 import Sobremesas from "./Pages/Categorias/Sobremesas";
 import Sucesso from "./Pages/Pedidos/Sucesso";
+import Pendente from "./Pages/Pedidos/Pendente";
+import Falha from "./Pages/Pedidos/Falha";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,6 +41,12 @@ const App = () => {
             screens: {
               Sucesso: {
                 path: "Sucesso",
+              },
+              Falha: {
+                path: "Falha",
+              },
+              Pendente: {
+                path: "Pendente",
               },
             },
           },
@@ -120,6 +128,18 @@ const App = () => {
           <Stack.Screen
             name="Sucesso"
             component={Sucesso}
+            options={{ headerShown: false }}
+          />
+
+<Stack.Screen
+            name="Falha"
+            component={Falha}
+            options={{ headerShown: false }}
+          />
+
+<Stack.Screen
+            name="Pendente"
+            component={Pendente}
             options={{ headerShown: false }}
           />
 
