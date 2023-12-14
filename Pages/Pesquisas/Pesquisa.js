@@ -3,6 +3,7 @@ import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet, Image } 
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { ROTA_URL } from "../../config.json";
+
 const Pesquisa = () => {
   const [termoPesquisa, setTermoPesquisa] = useState('');
   const [resultados, setResultados] = useState([]);
@@ -17,7 +18,7 @@ const Pesquisa = () => {
         return;
       }
 
-      const response = await fetch('http://10.81.1.36:3000/pesquisa', {
+      const response = await fetch(`${ROTA_URL}/pesquisa`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

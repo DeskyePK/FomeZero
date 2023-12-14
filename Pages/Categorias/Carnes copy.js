@@ -8,16 +8,13 @@ import {
   Alert,
 } from "react-native";
 import { ROTA_URL } from "../../config.json";
-import { useNavigation } from '@react-navigation/native';
-
-
 const TelaDeLanches = () => {
   const [empresasLanches, setEmpresasLanches] = useState([]);
-  const navigation = useNavigation();
+
   useEffect(() => {
     const fetchEmpresasLanches = async () => {
       try {
-        const response = await fetch(`${ROTA_URL}/sobremesas`, {
+        const response = await fetch(`${ROTA_URL}/lanches`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -26,7 +23,7 @@ const TelaDeLanches = () => {
 
         if (!response.ok) {
           throw new Error(
-            `Erro ao obter sobremesas: ${response.statusText}`
+            `Erro ao obter Carnes: ${response.statusText}`
           );
         }
 
@@ -35,7 +32,7 @@ const TelaDeLanches = () => {
         if (data.success) {
           setEmpresasLanches(data.data);
         } else {
-          console.error("Erro ao obter sobremesas:", data.message);
+          console.error("Erro ao obter Carnes:", data.message);
         }
       } catch (error) {
         console.error("Erro ao fazer a solicitação:", error);
@@ -84,7 +81,7 @@ const TelaDeLanches = () => {
           marginVertical: 16,
         }}
       >
-        Estabelecimentos de Sobremesas
+        Estabelecimentos de Carnes
       </Text>
       <FlatList
         data={empresasLanches}

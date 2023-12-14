@@ -8,9 +8,12 @@ import {
   Alert,
 } from "react-native";
 import { ROTA_URL } from "../../config.json";
+import { useNavigation } from '@react-navigation/native';
+
+
 const TelaDeLanches = () => {
   const [empresasLanches, setEmpresasLanches] = useState([]);
-
+  const navigation = useNavigation();
   useEffect(() => {
     const fetchEmpresasLanches = async () => {
       try {
@@ -43,11 +46,17 @@ const TelaDeLanches = () => {
     fetchEmpresasLanches();
   }, []);
 
+  const handlePressEmpresa = (empresaId, empresaNome, empresaFoto) => {
+    navigation.navigate('Cardapio', { empresaId, empresaNome, empresaFoto });
+  };
+
+
   const renderItem = ({ item }) => (
+    
     <TouchableOpacity
       onPress={() => {
-        console.log(`Você pressionou ${item.Nome_Empresa}`);
-      }}
+        handlePressEmpresa(item.ID_Empresa, item.Nome_Empresa, item.Foto_Empresa)}
+      }
       style={{
         padding: 16,
         borderBottomWidth: 1,
