@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { validate } from "cpf-check";
-
+import { ROTA_URL } from "../../config.json";
 const Registro = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [nome, setNome] = useState("");
@@ -73,7 +73,7 @@ const Registro = ({ navigation }) => {
 
     const data = { email, nome, cpf, senha, telefone };
 
-    fetch("http://192.168.0.101:3000/register", {
+    fetch(`${ROTA_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

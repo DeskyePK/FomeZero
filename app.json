@@ -2,6 +2,7 @@
   "expo": {
     "name": "FomeZero",
     "slug": "FomeZero",
+    "scheme": "fomezero",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/Logo.png",
@@ -18,25 +19,26 @@
       "supportsTablet": true
     },
     "android": {
-      "permissions": ["android.permission.INTERNET"],
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.deskye.FomeZero",
-      "config": {
-        "cleartext": {
-          "cleartextTrafficPermitted": true
-        }
-      }
+      "intentFilters": [
+      ],
+      "package": "com.anonymous.FomeZero"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "permissions": [
+      "android.permission.INTERNET"
+    ],
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/adaptive-icon.png",
+      "backgroundColor": "#ffffff"
     },
-    "extra": {
-      "eas": {
-        "projectId": "7cfeb864-172e-4432-8cb1-f73a8ad8824b"
+    "package": "com.deskye.FomeZero",
+    "config": {
+      "cleartext": {
+        "cleartextTrafficPermitted": true
       }
     }
-  }
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
+  },
+  "extra": {}
 }

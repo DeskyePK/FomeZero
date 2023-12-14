@@ -7,14 +7,14 @@ import {
   Image,
   Alert,
 } from "react-native";
-
+import { ROTA_URL } from "../../config.json";
 const TelaDeLanches = () => {
   const [empresasLanches, setEmpresasLanches] = useState([]);
 
   useEffect(() => {
     const fetchEmpresasLanches = async () => {
       try {
-        const response = await fetch("http://192.168.0.101:3000/lanches", {
+        const response = await fetch(`${ROTA_URL}/lanches`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -70,6 +70,7 @@ const TelaDeLanches = () => {
         style={{
           fontSize: 20,
           fontWeight: "bold",
+          marginTop: "10%",
           textAlign: "center",
           marginVertical: 16,
         }}

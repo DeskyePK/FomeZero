@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useUser } from '../../src/GlobalContext/UserContext';
 import { useNavigation } from "@react-navigation/native";
 
 const TelaPerfil = ({ route }) => {
   const navigation = useNavigation();
   const { logado = 0, nomeUsuario = "Usuário" } = route.params || {};
+  const { setUser } = useUser();
+
 
   const userData = {
     name: nomeUsuario,
@@ -21,6 +24,7 @@ const TelaPerfil = ({ route }) => {
   ];
 
   const sair = () => {
+    setUser(null);
     navigation.navigate("Perfil", { logado: 0 });
   };
 

@@ -11,7 +11,7 @@ const EmpresaListaHorizontal = ({ empresas, onPressEmpresa }) => {
   }
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => onPressEmpresa(item.ID_Empresa)}>
+    <TouchableOpacity onPress={() => onPressEmpresa(item.ID_Empresa, item.Nome_Empresa, item.Foto_Empresa)}>
       <View style={[styles.companyContainer, empresas.length === 1 && styles.singleCompany]}>
         <Image
           source={{ uri: `data:image/jpeg;base64,${item.Foto_Empresa}` }}

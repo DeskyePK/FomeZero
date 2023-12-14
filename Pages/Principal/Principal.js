@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Categoria from '../../Components/Categorias/Categorias';
 import EmpresaListaHorizontal from '../../Components/Categorias/Empresas'; 
+import { ROTA_URL } from "../../config.json";
 
 const categories = [
   { id: 1, name: 'Lanches', image: require('../../Images/Lanches.png') },
@@ -45,13 +46,12 @@ const TelaPrincipal = () => {
     }
   };
 
-  const handlePressEmpresa = empresaId => {
-
-    navigation.navigate('Cardapio', { empresaId });
+  const handlePressEmpresa = (empresaId, empresaNome, empresaFoto) => {
+    navigation.navigate('Cardapio', { empresaId, empresaNome, empresaFoto });
   };
 
   useEffect(() => {
-    fetch('http://192.168.0.101:3000/empresas-avaliadas', {
+    fetch(`${ROTA_URL}/empresas-avaliadas`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

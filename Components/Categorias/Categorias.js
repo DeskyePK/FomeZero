@@ -10,7 +10,7 @@ const CategoriaLista = ({ categories, onPressCategory }) => {
               <View style={{ alignItems: 'center', margin: 10 }}>
                 <Image
                    source={category.image}
-                  style={{ marginTop: 30, width: 100, height: 100, borderRadius: 20 }} // Ajuste o tamanho e a aparência conforme necessário
+                  style={{ marginTop: 30, width: 100, height: 100, borderRadius: 20 }} 
                 />
                 <Text style={{ marginTop: 5 }}>{category.name}</Text>
               </View>

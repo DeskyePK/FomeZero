@@ -11,18 +11,20 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from "react-native";
+import { useUser } from '../../src/GlobalContext/UserContext';
 import { Ionicons } from "@expo/vector-icons";
-
+import { ROTA_URL } from "../../config.json";
 export default function Login({ navigation }) {
   const [Nome_Usuario, setUsuario] = useState("");
   const [Senha_Usuario, setSenha] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(true);
   const [Logado, setLogado] = useState(1);
+  const { setUser } = useUser();
 
   const Login = () => {
     const data = { username: Nome_Usuario, password: Senha_Usuario };
-
-    fetch("http://192.168.0.101:3000/login", {
+  
+    fetch(`${ROTA_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +36,10 @@ export default function Login({ navigation }) {
         if (result.success) {
           setUsuario("");
           setSenha("");
-
+  
+          const { idUsuario } = result; 
+          setUser(idUsuario);
+  
           navigation.navigate("Perfil", {
             nomeUsuario: Nome_Usuario,
             logado: Logado,
